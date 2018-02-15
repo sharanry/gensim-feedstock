@@ -33,7 +33,7 @@ before_install:
       rm ~/uninstall_homebrew
 
 
-install:
+install: travis_wait 30 mvn install
     # Install Miniconda.
     - |
       echo ""
