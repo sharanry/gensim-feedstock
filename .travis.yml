@@ -33,7 +33,7 @@ before_install:
       rm ~/uninstall_homebrew
 
 
-install: travis_wait 30 mvn install
+install:
     # Install Miniconda.
     - |
       echo ""
@@ -56,6 +56,6 @@ install: travis_wait 30 mvn install
       source run_conda_forge_build_setup
 
 script:
-  - conda build ./recipe
+  - travis_wait 30 conda build ./recipe
 
   - upload_or_check_non_existence ./recipe conda-forge --channel=main
